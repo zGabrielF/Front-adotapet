@@ -133,7 +133,7 @@ class cadastroPageState extends State<cadastroPage> {
               ),
               const SizedBox(height: 24.0),
               ElevatedButton(
-                onPressed: _criarUsuario, // Chama o método _register ao clicar no botão
+                onPressed: _criarUsuario,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
