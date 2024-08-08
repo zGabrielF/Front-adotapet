@@ -49,5 +49,34 @@ class api {
       return false;
     }
   }
+
+  static Future<bool> login({
+    required String nick,
+    required String senha,
+  }) async {
+    var url = Uri.parse("$baseUrl/login");
+    final response = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'nick': nick,
+        'senha': senha,
+      }),
+    );
+
+    //print('Status code: ${response.statusCode}');
+    //print('Response body: ${response.body}');
+
+    if (response.statusCode == 200) {
+      print('Login realizado com sucesso');
+      return true;
+    } else {
+      print('Falha no login: ${response.body}');
+      return false;
+    }
+  }
+
 }
 

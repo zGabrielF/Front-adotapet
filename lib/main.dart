@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const ListaDeUsuarios()
-      //home: const inicialPage()
+      home: const inicialPage()
     );
   }
 }

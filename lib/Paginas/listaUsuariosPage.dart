@@ -4,14 +4,14 @@ import 'package:adota_pet_front/Api/api.dart';
 
 //Tela ok por enquanto
 
-class ListaDeUsuarios extends StatefulWidget {
-  const ListaDeUsuarios({super.key});
+class listaDeUsuariosPage extends StatefulWidget {
+  const listaDeUsuariosPage({super.key});
 
   @override
   ListaUsuariosState createState() => ListaUsuariosState();
 }
 
-class ListaUsuariosState extends State<ListaDeUsuarios> {
+class ListaUsuariosState extends State<listaDeUsuariosPage> {
   late Future<List<Usuario>> futureUsuarios;
 
   @override
@@ -24,13 +24,19 @@ class ListaUsuariosState extends State<ListaDeUsuarios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Usuários'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        backgroundColor: Colors.green, // Cor de fundo da app bar
+        title: const Text(
+          'Usuários',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            color: Colors.white,
+            fontSize: 30,
+            letterSpacing: 0,
+            fontWeight: FontWeight.normal,
+          ),
         ),
+        centerTitle: false,
+        elevation: 2,
       ),
       body: FutureBuilder<List<Usuario>>(
         future: futureUsuarios,
@@ -54,6 +60,7 @@ class ListaUsuariosState extends State<ListaDeUsuarios> {
                     contentPadding: const EdgeInsets.all(16.0),
                     title: Text(
                       usuario.nome ?? 'Nome não disponível',
+                      //'Nome: ${usuario.nome ?? 'Não disponivel'}',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -63,10 +70,10 @@ class ListaUsuariosState extends State<ListaDeUsuarios> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 8.0),
-                        Text(
-                          'ID: ${usuario.id ?? 'Não disponível'}',
-                          style: const TextStyle(fontSize: 16),
-                        ),
+                        // Text(
+                        //   'ID: ${usuario.id ?? 'Não disponível'}',
+                        //   style: const TextStyle(fontSize: 16),
+                        // ),
                         const SizedBox(height: 4.0),
                         Text(
                           'Nick: ${usuario.nick ?? 'Não disponível'}',

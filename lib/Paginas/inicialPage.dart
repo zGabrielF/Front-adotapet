@@ -1,7 +1,8 @@
 import 'package:adota_pet_front/Paginas/cadastroPage.dart';
+import 'package:adota_pet_front/Paginas/loginPage.dart';
 import 'package:flutter/material.dart';
-import 'package:adota_pet_front/Paginas/listaUsuariosPage.dart';
-import 'package:adota_pet_front/Paginas/homePage.dart';
+
+//tela ok por enquanto
 
 class inicialPage extends StatefulWidget {
   const inicialPage({super.key});
@@ -16,7 +17,6 @@ class inicialPageState extends State<inicialPage> {
   @override
   void initState() {
     super.initState();
-    //futureUsuarios = api.getUsuarios();
   }
 
   @override
@@ -27,7 +27,6 @@ class inicialPageState extends State<inicialPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Título
             const Text(
               'AdotaPet',
               style: TextStyle(
@@ -47,13 +46,13 @@ class inicialPageState extends State<inicialPage> {
               ),
             ),
             const SizedBox(height: 40),
-
             // Botões
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ListaDeUsuarios())
+                    //MaterialPageRoute(builder: (context) => const listaDeUsuariosPage())
+                    MaterialPageRoute(builder: (context) => const loginPage())
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -62,7 +61,7 @@ class inicialPageState extends State<inicialPage> {
                 textStyle: const TextStyle(fontSize: 18),
                 foregroundColor: Colors.black
               ),
-              child: const Text('Login'),
+              child: const Text('Entrar'),
 
             ),
             const SizedBox(height: 10),

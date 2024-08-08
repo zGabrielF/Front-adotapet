@@ -1,3 +1,4 @@
+import 'package:adota_pet_front/Paginas/inicialPage.dart';
 import 'package:adota_pet_front/Paginas/listaUsuariosPage.dart';
 import 'package:flutter/material.dart';
 import 'package:adota_pet_front/Api/api.dart';
@@ -35,7 +36,7 @@ class cadastroPageState extends State<cadastroPage> {
 
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ListaDeUsuarios()),
+          MaterialPageRoute(builder: (context) => inicialPage()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -49,7 +50,19 @@ class cadastroPageState extends State<cadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        backgroundColor: Colors.green, // Cor de fundo da app bar
+        title: const Text(
+          'Cadastro',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            color: Colors.white,
+            fontSize: 30,
+            letterSpacing: 0,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        centerTitle: false,
+        elevation: 2,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -135,7 +148,7 @@ class cadastroPageState extends State<cadastroPage> {
               ElevatedButton(
                 onPressed: _criarUsuario,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   textStyle: const TextStyle(fontSize: 18),
                 ),
