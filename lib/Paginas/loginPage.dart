@@ -84,7 +84,7 @@ class loginPageState extends State<loginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green, // Cor de fundo da app bar
+        backgroundColor: Colors.green,
         title: const Text(
           'Login',
           style: TextStyle(
@@ -125,7 +125,7 @@ class loginPageState extends State<loginPage> {
             ElevatedButton(
               onPressed: _login,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green, // Cor de fundo do botão
+                backgroundColor: Colors.green,
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 textStyle: TextStyle(fontSize: 18),
               ),

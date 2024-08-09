@@ -1,7 +1,7 @@
 import 'package:adota_pet_front/Paginas/inicialPage.dart';
-import 'package:adota_pet_front/Paginas/listaUsuariosPage.dart';
 import 'package:flutter/material.dart';
 import 'package:adota_pet_front/Api/api.dart';
+import 'package:flutter/services.dart';
 
 //Tela ok por enquanto
 
@@ -18,7 +18,8 @@ class cadastroPageState extends State<cadastroPage> {
   final TextEditingController _nickController = TextEditingController();
   final TextEditingController _telefoneController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
-  final TextEditingController _confirmarSenhaController = TextEditingController();
+  final TextEditingController _confirmarSenhaController =
+      TextEditingController();
 
   Future<void> _criarUsuario() async {
     if (_formKey.currentState?.validate() ?? false) {
@@ -50,7 +51,7 @@ class cadastroPageState extends State<cadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green, // Cor de fundo da app bar
+        backgroundColor: Colors.green,
         title: const Text(
           'Cadastro',
           style: TextStyle(
@@ -105,9 +106,15 @@ class cadastroPageState extends State<cadastroPage> {
                   border: OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.phone,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(11),
+                ],
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Por favor, insira seu telefone';
+                  } else if (value.length != 11) {
+                    return 'O telefone deve ter 11 dígitos';
                   }
                   return null;
                 },
@@ -123,6 +130,8 @@ class cadastroPageState extends State<cadastroPage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Por favor, insira sua senha';
+                  } else if (value.length < 4) {
+                    return 'A senha deve ter pelo menos 4 caracteres';
                   }
                   return null;
                 },
@@ -138,6 +147,8 @@ class cadastroPageState extends State<cadastroPage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Por favor, confirme sua senha';
+                  } else if (value.length < 4) {
+                    return 'A senha deve ter pelo menos 4 caracteres';
                   } else if (value != _senhaController.text) {
                     return 'As senhas não coincidem';
                   }
@@ -151,6 +162,7 @@ class cadastroPageState extends State<cadastroPage> {
                   backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   textStyle: const TextStyle(fontSize: 18),
+                  foregroundColor: Colors.black,
                 ),
                 child: const Text('Cadastrar'),
               )

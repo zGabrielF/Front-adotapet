@@ -46,7 +46,7 @@ class inicialPageState extends State<inicialPage> {
               ),
             ),
             const SizedBox(height: 40),
-            // Botões
+
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -71,12 +71,12 @@ class inicialPageState extends State<inicialPage> {
                   MaterialPageRoute(builder: (context) => cadastroPage())
                 );
 
-                // Ação do botão Inscreva-se
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
 
-                // Cor de fundo do botão
+
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 textStyle: const TextStyle(fontSize: 18),
                   foregroundColor: Colors.white
